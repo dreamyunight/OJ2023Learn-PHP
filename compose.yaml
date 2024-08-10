@@ -1,0 +1,18 @@
+services:
+  web:
+    image: php:8.3-mysql
+    container_name: OJ2023Learn-web-PHP
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - "./src:/var/www/html"
+  db:
+    image: mariadb:latest
+    container_name: OJ2023Learn-db-PHP
+    ports:
+      - "3306:3306"
+    # volumes:
+    #   - "./db:/var/lib/mysql:Z"
+    environment:
+      - MARIADB_ROOT_PASSWORD=030425
